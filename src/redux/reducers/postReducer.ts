@@ -1,4 +1,10 @@
-import { PostsAction, PostsActionTypes, PostsState } from "../types/postType";
+import { PostsAction, PostsActionTypes, Post } from "../types/postType";
+
+interface PostsState {
+  posts?: Post[];
+  error?: string | null;
+  loading: boolean;
+}
 
 const initialState: PostsState = {
   posts: [],

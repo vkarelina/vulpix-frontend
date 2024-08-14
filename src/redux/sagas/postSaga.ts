@@ -1,17 +1,20 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 
-import { PostsActionTypes, PostState } from "../types/postType";
+import { PostsActionTypes } from "../types/postType";
 import { fetchPostsApi } from "../../api/apiPost";
-import { setPostsError, setPostsSuccess } from "../actions/actions";
+import {
+  fetchPostsSuccess,
+  fetchPostsError,
+} from "../actionsCreators/actionsPosts";
 
 function* fetchPostsWorker() {
   try {
-    const { data }: AxiosResponse<PostState[]> = yield call(fetchPostsApi);
-    yield put(setPostsSuccess(data));
+    const { data } = yield call(fetchPostsApi);
+    yield put(fetchPostsSuccess(data));
   } catch (e) {
     if (axios.isAxiosError(e)) {
-      yield put(setPostsError(e.message));
+      yield put(fetchPostsError(e.message));
     }
   }
 }

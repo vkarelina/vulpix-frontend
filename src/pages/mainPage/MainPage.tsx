@@ -4,9 +4,10 @@ import { Box, LinearProgress } from "@mui/material";
 import { useDispatch } from "react-redux";
 
 import { useTypeSelector } from "../../hooks/useTypeSelector";
-import { getAllPosts } from "../../redux/actions/actions";
+import { fetchPosts } from "../../redux/actionsCreators/actionsPosts";
 
 import PostCard from "../../components/PostCard/PostCard";
+import { WrapperPostCard } from "./MainPageStyle";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -15,19 +16,13 @@ const MainPage = () => {
   const postsLoading = useTypeSelector((state) => state.posts.loading);
 
   useEffect(() => {
-    dispatch(getAllPosts());
+    dispatch(fetchPosts());
   }, []);
 
   return (
     <>
       {postsLoading && <LinearProgress color="inherit" />}
-      <Box
-        display={"flex"}
-        flexWrap={"wrap"}
-        gap={2}
-        justifyContent={"center"}
-        pt={2}
-      >
+      <Box {...WrapperPostCard}>
         {postsArr &&
           postsArr.map((post) => (
             <PostCard

@@ -1,3 +1,5 @@
+import { ActionType } from "./index";
+
 interface UserPostState {
   id: number;
   login: string;
@@ -10,7 +12,7 @@ interface TagPostState {
   name: string;
 }
 
-export interface PostState {
+export interface Post {
   id: number;
   title: string;
   description: string;
@@ -19,31 +21,20 @@ export interface PostState {
   tags: TagPostState[];
 }
 
-export interface PostsState {
-  posts?: PostState[];
-  error?: string | null;
-  loading: boolean;
-}
-
 export const enum PostsActionTypes {
   FETCH_POSTS = "FETCH_POSTS",
   FETCH_POSTS_SUCCESS = "FETCH_POSTS_SUCCESS",
   FETCH_POSTS_ERROR = "FETCH_POSTS_ERROR",
 }
 
-interface PostAction<T, K = unknown> {
-  type: T;
-  payload?: K;
-}
+type FetchPostsAction = ActionType<PostsActionTypes.FETCH_POSTS>;
 
-type FetchPostsAction = PostAction<PostsActionTypes.FETCH_POSTS>;
-
-type FetchPostsSuccessAction = PostAction<
+type FetchPostsSuccessAction = ActionType<
   PostsActionTypes.FETCH_POSTS_SUCCESS,
-  PostState[]
+  Post[]
 >;
 
-type FetchPostsErrorAction = PostAction<
+type FetchPostsErrorAction = ActionType<
   PostsActionTypes.FETCH_POSTS_ERROR,
   string
 >;

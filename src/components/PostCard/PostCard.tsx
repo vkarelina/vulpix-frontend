@@ -6,29 +6,19 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
+import { cardContentStyle, cardStyle, chipStyle } from "./PostCardStyle";
+
 interface PostCardProps {
   title: string;
   description: string;
   picturePath?: string;
-  tags: TagsProps[];
+  tags: TagProps[];
 }
 
-interface TagsProps {
+export interface TagProps {
   id: number;
   name: string;
 }
-
-const cardStyle = {
-  maxWidth: 345,
-  backgroundColor: "#111227",
-  color: "#fff",
-  minWidth: 300,
-};
-
-const cardContentStyle = {
-  display: "flex",
-  gap: 1,
-};
 
 const PostCard: FC<PostCardProps> = ({
   title,
@@ -47,12 +37,7 @@ const PostCard: FC<PostCardProps> = ({
       </CardContent>
       <CardContent sx={cardContentStyle}>
         {tags.map((tag) => (
-          <Chip
-            key={tag.id}
-            label={tag.name}
-            variant="outlined"
-            sx={{ color: "#fff" }}
-          />
+          <Chip key={tag.id} {...chipStyle(tag)} />
         ))}
       </CardContent>
     </Card>

@@ -3,15 +3,15 @@ import { useEffect } from "react";
 import { Box, LinearProgress } from "@mui/material";
 import { useDispatch } from "react-redux";
 
-import PostCard from "../../components/PostCard/PostCard";
 import { useTypeSelector } from "../../hooks/useTypeSelector";
 import { getAllPosts } from "../../redux/actions/actions";
+
+import PostCard from "../../components/PostCard/PostCard";
 
 const MainPage = () => {
   const dispatch = useDispatch();
 
   const postsArr = useTypeSelector((state) => state.posts.posts);
-  // const postErr = useTypeSelector((state) => state.posts.error);
   const postsLoading = useTypeSelector((state) => state.posts.loading);
 
   useEffect(() => {

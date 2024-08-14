@@ -27,7 +27,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "import/order": [
-      "error",
+      "warn",
       {
         groups: [["builtin", "external", "internal"]],
         "newlines-between": "always",

@@ -1,4 +1,9 @@
-import { PostsAction, PostsActionTypes, Post } from "../types/postType";
+import {
+  FETCH_POSTS,
+  FETCH_POSTS_ERROR,
+  FETCH_POSTS_SUCCESS,
+} from "../actions/actionsPost";
+import { PostsAction, Post } from "../types/postType";
 
 interface PostsState {
   posts?: Post[];
@@ -17,19 +22,19 @@ export const postsReducer = (
   action: PostsAction,
 ): PostsState => {
   switch (action.type) {
-    case PostsActionTypes.FETCH_POSTS:
+    case FETCH_POSTS:
       return {
         ...state,
         error: null,
         loading: true,
       };
-    case PostsActionTypes.FETCH_POSTS_SUCCESS:
+    case FETCH_POSTS_SUCCESS:
       return {
         ...state,
         loading: false,
         posts: action.payload,
       };
-    case PostsActionTypes.FETCH_POSTS_ERROR:
+    case FETCH_POSTS_ERROR:
       return {
         ...state,
         loading: false,

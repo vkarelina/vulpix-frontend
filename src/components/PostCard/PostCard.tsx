@@ -37,7 +37,12 @@ const PostCard: FC<PostCardProps> = ({
       </CardContent>
       <CardContent sx={cardContentStyle}>
         {tags.map((tag) => (
-          <Chip key={tag.id} {...chipStyle(tag)} />
+          <Chip
+            key={tag.id}
+            label={tag.name}
+            variant="outlined"
+            sx={chipStyle}
+          />
         ))}
       </CardContent>
     </Card>

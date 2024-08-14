@@ -1,4 +1,9 @@
 import { ActionType } from "./index";
+import {
+  FETCH_POSTS,
+  FETCH_POSTS_ERROR,
+  FETCH_POSTS_SUCCESS,
+} from "../actions/actionsPost";
 
 interface UserPostState {
   id: number;
@@ -21,23 +26,11 @@ export interface Post {
   tags: TagPostState[];
 }
 
-export const enum PostsActionTypes {
-  FETCH_POSTS = "FETCH_POSTS",
-  FETCH_POSTS_SUCCESS = "FETCH_POSTS_SUCCESS",
-  FETCH_POSTS_ERROR = "FETCH_POSTS_ERROR",
-}
+type FetchPostsAction = ActionType<typeof FETCH_POSTS>;
 
-type FetchPostsAction = ActionType<PostsActionTypes.FETCH_POSTS>;
+type FetchPostsSuccessAction = ActionType<typeof FETCH_POSTS_SUCCESS, Post[]>;
 
-type FetchPostsSuccessAction = ActionType<
-  PostsActionTypes.FETCH_POSTS_SUCCESS,
-  Post[]
->;
-
-type FetchPostsErrorAction = ActionType<
-  PostsActionTypes.FETCH_POSTS_ERROR,
-  string
->;
+type FetchPostsErrorAction = ActionType<typeof FETCH_POSTS_ERROR, string>;
 
 export type PostsAction =
   | FetchPostsAction

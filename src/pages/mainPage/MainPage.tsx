@@ -3,17 +3,17 @@ import { useEffect } from "react";
 import { Box, LinearProgress } from "@mui/material";
 import { useDispatch } from "react-redux";
 
-import { useTypeSelector } from "../../hooks/useTypeSelector";
-import { fetchPosts } from "../../redux/actionsCreators/actionsPosts";
+import { useAppSelector } from "../../hooks/useAppSelector";
+import { fetchPosts } from "../../redux/actionsCreators/actionsCreatorsPosts";
 
-import PostCard from "../../components/PostCard/PostCard";
 import { WrapperPostCard } from "./MainPageStyle";
+import { PostCard } from "../../components/PostCard";
 
 const MainPage = () => {
   const dispatch = useDispatch();
 
-  const postsArr = useTypeSelector((state) => state.posts.posts);
-  const postsLoading = useTypeSelector((state) => state.posts.loading);
+  const postsArr = useAppSelector((state) => state.posts.posts);
+  const postsLoading = useAppSelector((state) => state.posts.loading);
 
   useEffect(() => {
     dispatch(fetchPosts());
@@ -22,7 +22,7 @@ const MainPage = () => {
   return (
     <>
       {postsLoading && <LinearProgress color="inherit" />}
-      <Box {...WrapperPostCard}>
+      <Box sx={WrapperPostCard}>
         {postsArr &&
           postsArr.map((post) => (
             <PostCard

@@ -5,5 +5,4 @@ import {
 
 import { RootState } from "../redux/reducers";
 
-export const useTypeSelector: TypedUseSelectorHook<RootState> =
-  useReduxSelector;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useReduxSelector;

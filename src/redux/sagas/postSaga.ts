@@ -1,12 +1,12 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
 
-import { PostsActionTypes } from "../types/postType";
 import { fetchPostsApi } from "../../api/apiPost";
 import {
   fetchPostsSuccess,
   fetchPostsError,
-} from "../actionsCreators/actionsPosts";
+} from "../actionsCreators/actionsCreatorsPosts";
+import { FETCH_POSTS } from "../actions/actionsPost";
 
 function* fetchPostsWorker() {
   try {
@@ -20,5 +20,5 @@ function* fetchPostsWorker() {
 }
 
 export function* postsWatcher() {
-  yield takeLatest(PostsActionTypes.FETCH_POSTS, fetchPostsWorker);
+  yield takeLatest(FETCH_POSTS, fetchPostsWorker);
 }

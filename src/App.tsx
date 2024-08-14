@@ -1,5 +1,5 @@
-import Header from "./components/Header/Header";
-import MainPage from "./pages/main/MainPage";
+import { Header } from "./components/Header";
+import { MainPage } from "./pages";
 
 function App() {
   return (

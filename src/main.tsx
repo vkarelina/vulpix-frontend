@@ -1,13 +1,17 @@
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
+import { ThemeProvider } from "@mui/material";
 
-import App from "./App.tsx";
 import store from "./redux/index.ts";
+import App from "./App.tsx";
 
 import "./index.css";
+import theme from "./theme/theme.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ThemeProvider>,
 );

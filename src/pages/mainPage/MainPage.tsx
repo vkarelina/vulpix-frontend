@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { fetchPosts } from "../../redux/actionsCreators/actionsCreatorsPosts";
-
 import { WrapperPostCard } from "./MainPageStyle";
 import { PostCard } from "../../components/PostCard";
 

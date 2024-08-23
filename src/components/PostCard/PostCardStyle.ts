@@ -1,7 +1,9 @@
+import { theme } from "../../theme";
+
 export const cardStyle = {
   maxWidth: 345,
-  backgroundColor: "#111227",
-  color: "#fff",
+  backgroundColor: theme.palette.vulpix.main,
+  color: theme.palette.vulpix.lightText,
   minWidth: 300,
 };
 
@@ -11,5 +13,5 @@ export const cardContentStyle = {
 };
 
 export const chipStyle = {
-  color: "#fff",
+  color: theme.palette.vulpix.lightText,
 };

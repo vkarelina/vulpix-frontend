@@ -3,7 +3,7 @@ import {
   FETCH_POSTS,
   FETCH_POSTS_ERROR,
   FETCH_POSTS_SUCCESS,
-} from "../actions/actionsPost";
+} from "../actions/post";
 
 interface UserPostState {
   id: number;

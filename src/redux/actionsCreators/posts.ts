@@ -2,8 +2,8 @@ import {
   FETCH_POSTS,
   FETCH_POSTS_ERROR,
   FETCH_POSTS_SUCCESS,
-} from "../actions/actionsPost";
-import { Post } from "../types/postType";
+} from "../actions/post";
+import { Post } from "../types/post";
 
 export const fetchPosts = () => ({
   type: FETCH_POSTS,

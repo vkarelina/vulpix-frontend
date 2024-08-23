@@ -4,8 +4,7 @@ import { Box, LinearProgress } from "@mui/material";
 import { useDispatch } from "react-redux";
 
 import { useAppSelector } from "../../hooks/useAppSelector";
-import { fetchPosts } from "../../redux/actionsCreators/actionsCreatorsPosts";
-
+import { fetchPosts } from "../../redux/actionsCreators/posts";
 import { WrapperPostCard } from "./MainPageStyle";
 import { PostCard } from "../../components/PostCard";
 

@@ -10,7 +10,14 @@ import {
 } from "@mui/material";
 import { useDispatch } from "react-redux";
 
-import { fetchRegistration } from "../../redux/actionsCreators/actionsCreatorsAuth";
+import { fetchRegistration } from "../../redux/actionsCreators/auth";
+import {
+  AvatarStyle,
+  boxInputStyle,
+  buttonStyle,
+  dialogStyle,
+  dialogWrapperStyle,
+} from "./SignUpStyle";
 
 interface SignUpModalProps {
   handleClose: () => void;
@@ -48,22 +55,16 @@ const SignUpModal: FC<SignUpModalProps> = ({ handleClose, open }) => {
 
   return (
     <Dialog onClose={handleClose} open={open}>
-      <Box sx={{ width: 350, p: 4, bgcolor: "#111227" }}>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "#dc5801d9" }} />
+      <Box sx={dialogStyle}>
+        <Box sx={dialogWrapperStyle}>
+          <Avatar sx={AvatarStyle} />
           <Typography component="h1" variant="h5" color="white">
             Sign up
           </Typography>
           <Box
             component="form"
             noValidate
-            sx={{ mt: 1 }}
+            sx={boxInputStyle}
             onSubmit={handleSubmit}
           >
             <TextField
@@ -98,12 +99,7 @@ const SignUpModal: FC<SignUpModalProps> = ({ handleClose, open }) => {
               autoComplete="current-password"
               onChange={(e) => (signUpData.current.password = e.target.value)}
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="primary"
-              sx={{ mt: 3, mb: 2 }}
-            >
+            <Button type="submit" fullWidth variant="primary" sx={buttonStyle}>
               Sign Up
             </Button>
           </Box>

@@ -1,12 +1,9 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
 
-import { fetchPostsApi } from "../../api/apiPost";
-import {
-  fetchPostsSuccess,
-  fetchPostsError,
-} from "../actionsCreators/actionsCreatorsPosts";
-import { FETCH_POSTS } from "../actions/actionsPost";
+import { fetchPostsApi } from "../../api/post";
+import { fetchPostsSuccess, fetchPostsError } from "../actionsCreators/posts";
+import { FETCH_POSTS } from "../actions/post";
 
 function* fetchPostsWorker() {
   try {

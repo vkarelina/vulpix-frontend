@@ -3,10 +3,12 @@ import { useState } from "react";
 import { IconButton, Avatar, Menu, MenuItem } from "@mui/material";
 import { useDispatch } from "react-redux";
 
-import { fetchWhoAmI } from "../../redux/actionsCreators/actionsCreatorsAuth";
+import { fetchWhoAmI } from "../../redux/actionsCreators/auth";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 const DropdownListUser = () => {
   const dispatch = useDispatch();
+  const user = useAppSelector((state) => state.auth.userData);
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -26,7 +28,9 @@ const DropdownListUser = () => {
   return (
     <>
       <IconButton onClick={handleClick}>
-        <Avatar alt="Vika" src="/path-to-avatar.jpg" />
+        {user && (
+          <Avatar alt={user.login} src={user.avatarPath || "avatar.jpg"} />
+        )}
       </IconButton>
       <Menu
         anchorEl={anchorEl}
@@ -34,7 +38,7 @@ const DropdownListUser = () => {
         onClose={handleClose}
         keepMounted
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem>Profile</MenuItem>
         <MenuItem onClick={logOut}>Logout</MenuItem>
       </Menu>
     </>

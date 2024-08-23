@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
 import {
   fetchAccessToken,
   fetchWhoAmI,
-} from "../../redux/actionsCreators/actionsCreatorsAuth";
+} from "../../redux/actionsCreators/auth";
 import {
   AvatarStyle,
   boxInputStyle,

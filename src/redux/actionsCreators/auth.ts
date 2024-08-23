@@ -8,22 +8,22 @@ import {
   FETCH_WHO_AM_I,
   FETCH_WHO_AM_I_ERROR,
   FETCH_WHO_AM_I_SUCCESS,
-} from "../actions/actionsAuth";
-import { LoginData, RegistrationData, UserData } from "../types/authType";
+} from "../actions/auth";
+import { LoginData, RegistrationData, UserData } from "../types/auth";
 
 export const fetchAccessToken = (payload: LoginData) => ({
   type: FETCH_ACCESS_TOKEN,
   payload,
 });
 
-export const fetchAccessTokenSuccess = (userData: UserData) => ({
+export const fetchAccessTokenSuccess = (payload: UserData) => ({
   type: FETCH_ACCESS_TOKEN_SUCCESS,
-  payload: userData,
+  payload,
 });
 
-export const fetchAccessTokenError = (error: string) => ({
+export const fetchAccessTokenError = (payload: string) => ({
   type: FETCH_ACCESS_TOKEN_ERROR,
-  payload: error,
+  payload,
 });
 
 export const fetchRegistration = (payload: RegistrationData) => ({
@@ -36,9 +36,9 @@ export const fetchRegistrationSuccess = (payload: UserData) => ({
   payload,
 });
 
-export const fetchRegistrationError = (error: string) => ({
+export const fetchRegistrationError = (payload: string) => ({
   type: FETCH_REGISTRATION_ERROR,
-  payload: error,
+  payload,
 });
 
 export const fetchWhoAmI = () => ({
@@ -50,7 +50,7 @@ export const fetchWhoAmISuccess = (payload: UserData) => ({
   payload,
 });
 
-export const fetchWhoAmIError = (error: string) => ({
+export const fetchWhoAmIError = (payload: string) => ({
   type: FETCH_WHO_AM_I_ERROR,
-  payload: error,
+  payload,
 });

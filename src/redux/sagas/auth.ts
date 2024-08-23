@@ -5,16 +5,16 @@ import {
   FETCH_ACCESS_TOKEN,
   FETCH_REGISTRATION,
   FETCH_WHO_AM_I,
-} from "../actions/actionsAuth";
+} from "../actions/auth";
 import {
   fetchLoginApi,
   fetchProfile,
   fetchRegistrationApi,
-} from "../../api/apiAuth";
+} from "../../api/auth";
 import {
   FetchAccessTokenAction,
   IFetchRegistrationAction,
-} from "../types/authType";
+} from "../types/auth";
 import {
   fetchAccessTokenError,
   fetchAccessTokenSuccess,
@@ -22,7 +22,7 @@ import {
   fetchRegistrationSuccess,
   fetchWhoAmIError,
   fetchWhoAmISuccess,
-} from "../actionsCreators/actionsCreatorsAuth";
+} from "../actionsCreators/auth";
 
 // Получение access token при логине
 function* fetchAccessTokenSaga(action: FetchAccessTokenAction) {

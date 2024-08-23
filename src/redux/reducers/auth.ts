@@ -8,13 +8,13 @@ import {
   FETCH_WHO_AM_I,
   FETCH_WHO_AM_I_ERROR,
   FETCH_WHO_AM_I_SUCCESS,
-} from "../actions/actionsAuth";
-import { AuthAction, UserData } from "../types/authType";
+} from "../actions/auth";
+import { AuthAction, UserData } from "../types/auth";
 
 interface AuthState {
   loading: boolean;
-  error?: string | null;
-  userData?: UserData | null;
+  error: string | null;
+  userData: UserData | null;
 }
 
 const initialState: AuthState = {
@@ -34,12 +34,12 @@ export const authReducer = (
       return { ...state, loading: true, error: null };
     case FETCH_ACCESS_TOKEN_SUCCESS:
       return {
-        ...state,
-        userData: action.payload,
+        ...initialState,
+        userData: action.payload as UserData,
       };
     case FETCH_REGISTRATION_SUCCESS:
       return {
-        userData: action.payload,
+        userData: action.payload as UserData,
         loading: false,
         error: null,
       };
@@ -47,18 +47,18 @@ export const authReducer = (
       return {
         loading: false,
         error: null,
-        userData: action.payload,
+        userData: action.payload as UserData,
       };
     case FETCH_WHO_AM_I_ERROR:
       return {
         ...initialState,
-        error: action.payload,
+        error: action.payload as string,
       };
     case FETCH_ACCESS_TOKEN_ERROR:
     case FETCH_REGISTRATION_ERROR:
       return {
         ...state,
-        error: action.payload,
+        error: action.payload as string,
       };
     default:
       return state;

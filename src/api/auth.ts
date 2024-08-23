@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 
 import api from "./api";
-import { LoginData, RegistrationData, UserData } from "../redux/types/authType";
+import { LoginData, RegistrationData, UserData } from "../redux/types/auth";
 
 export const fetchLoginApi = (
   data: LoginData,

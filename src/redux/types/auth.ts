@@ -9,7 +9,7 @@ import {
   FETCH_WHO_AM_I,
   FETCH_WHO_AM_I_ERROR,
   FETCH_WHO_AM_I_SUCCESS,
-} from "../actions/actionsAuth";
+} from "../actions/auth";
 
 export interface AuthState {
   accessToken: string | null;

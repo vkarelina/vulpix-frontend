@@ -34,6 +34,8 @@ function* fetchAccessTokenSaga(action: FetchAccessTokenAction) {
   } catch (e) {
     if (axios.isAxiosError(e)) {
       yield put(fetchAccessTokenError(e.message));
+    } else if (e instanceof Error) {
+      yield put(fetchAccessTokenError(e.message));
     }
   }
 }
@@ -49,6 +51,8 @@ function* fetchRegistrationSaga(action: IFetchRegistrationAction) {
   } catch (e) {
     if (axios.isAxiosError(e)) {
       yield put(fetchRegistrationError(e.message));
+    } else if (e instanceof Error) {
+      yield put(fetchAccessTokenError(e.message));
     }
   }
 }
